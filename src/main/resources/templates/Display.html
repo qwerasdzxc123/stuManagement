@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>学生信息展示</title>
+    </head>
+        <body>
+        <table border="1px">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>地址</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="students:${students}">
+                <td th:text="${students.id}"></td>
+                <td th:text="${students.name}"></td>
+                <td th:text="${students.age}"></td>
+                <td th:text="${students.address}"></td>
+                <td th:text="${students.gender}"></td>
+                <td>
+                    <a th:href="@{sendid(id=${students.id})}">更新</a>
+                    <a th:href="@{del(id=${students.id})}">删除</a>
+                </td>
+            </tr>
+            <a href="/student/addPage">新增</a>
+        </table>
+
+        </body>
+</html>
+
+
+
